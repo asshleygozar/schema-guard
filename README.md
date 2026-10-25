@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img src="./public/images/schema_guard_logo.png" alt="Schema Guard logo" width="72" height="72" style="vertical-align: middle;" />
-  <span style="vertical-align: middle;">Schema Guard</span>
+  <img src="./public/images/schema_guard_logo.png" alt="Schema Guard logo" width="72" height="72" align="center" />
+  Schema Guard
 </h1>
 
 ## Overview
