@@ -1,17 +1,17 @@
-<h1 align="center">
-  <img src="./public/images/schema_guard_logo.png" alt="Schema Guard logo" width="72" height="72" align="center" />
-  Schema Guard
-</h1>
-
-## Overview
-
-Schema Guard is an AI-powered database schema intelligence platform. It is designed to detect breaking database schema changes and provide warnings, analysis, recommendations, and feedback to support safer schema updates.
+<div align="center">
+  <img src="./public/images/schema_guard_logo.svg" alt="Schema Guard logo" width="150" height="150" />
+  <h1>🛡️Schema Guard</h1>
+</div>
+<p align="center">
+ Schema Guard is an AI-powered database schema intelligence platform. It is designed to detect breaking database schema changes and provide warnings, analysis, recommendations, and feedback to support safer schema updates.
+</p>
 
 ## Features
 
 - Detect potentially breaking database schema changes.
 - Surface warnings and analysis to help assess schema changes.
 - Provide recommendations and feedback for safer database updates.
+- Provides historical data of migrations and revisions and previous analysis
 
 ## Tech Stack
 
@@ -23,7 +23,7 @@ Schema Guard is an AI-powered database schema intelligence platform. It is desig
 - Tailwind CSS
 - Axios
 
-### Platform
+### API Server
 
 - Python and FastAPI
 - SQLAlchemy
@@ -35,6 +35,12 @@ Schema Guard is an AI-powered database schema intelligence platform. It is desig
 ## Getting Started
 
 ### Setup
+
+Setup your env variables environment and fill out the required variables before running the app
+
+```bash
+cp .env.example .env
+```
 
 Install dependencies and start the development server from the web client directory:
 
@@ -52,8 +58,10 @@ bun run build
 bun run start
 ```
 
-## Notes
-
-- The web client and API are separate applications; run the API and its required services for connected functionality.
-- Configure the API environment using its `.env.example` before starting the backend.
-- The logo is stored at `public/images/schema_guard_logo.png`.
+<br />
+<div align="center">
+  <hr />
+  <p>
+    Made with ❤️ by Asshley Gozar
+  </p>
+</div>
