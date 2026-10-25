@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">
+  <img src="./public/images/schema_guard_logo.png" alt="Schema Guard logo" width="72" height="72" style="vertical-align: middle;" />
+  <span style="vertical-align: middle;">Schema Guard</span>
+</h1>
+
+## Overview
+
+Schema Guard is an AI-powered database schema intelligence platform. It is designed to detect breaking database schema changes and provide warnings, analysis, recommendations, and feedback to support safer schema updates.
+
+## Features
+
+- Detect potentially breaking database schema changes.
+- Surface warnings and analysis to help assess schema changes.
+- Provide recommendations and feedback for safer database updates.
+
+## Tech Stack
+
+### Web client
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Axios
+
+### Platform
+
+- Python and FastAPI
+- SQLAlchemy
+- PostgreSQL
+- Redis
+- Docker
+- OpenAI API
 
 ## Getting Started
 
-First, run the development server:
+### Setup
+
+Install dependencies and start the development server from the web client directory:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun run build
+bun run start
+```
 
-## Learn More
+## Notes
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The web client and API are separate applications; run the API and its required services for connected functionality.
+- Configure the API environment using its `.env.example` before starting the backend.
+- The logo is stored at `public/images/schema_guard_logo.png`.
