@@ -42,6 +42,21 @@ Setup your env variables environment and fill out the required variables before 
 cp .env.example .env
 ```
 
+Set `NEXT_PUBLIC_API_ORIGIN` to the public FastAPI server origin (for example,
+`http://localhost:8000`). Configure the same API origin as `API_ORIGIN` on the
+server. GitHub sign-in starts directly on FastAPI, which handles the callback
+at `<API_ORIGIN>/api/v1/auth/github/callback`; register that server URL in the
+GitHub OAuth app. The session remains an HttpOnly cookie owned by the API and
+is validated by the client through the API.
+
+After sign-in, the API returns users to `/<github-username>`. The Next.js
+`proxy.ts` validates the API session, redirects authenticated visits to `/` to
+the username dashboard, sends unauthenticated dashboard visits back to `/`,
+and canonicalizes old `/dashboard` URLs to the signed-in user's dashboard.
+If the client and API are on different subdomains in production, configure the
+same `SESSION_COOKIE_DOMAIN` (for example, `.example.com`) on both services so
+the browser sends the HttpOnly session cookie to the client proxy.
+
 Install dependencies and start the development server from the web client directory:
 
 ```bash
