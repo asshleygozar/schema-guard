@@ -72,11 +72,14 @@ export default function Home() {
               priority
               className="object-contain max-sm:size-8"
             />
-            <span>Schema Guard</span>
+            <span className="font-bold tracking-tight">
+              <span className="text-[#25233b]">Schema</span>{" "}
+              <span className="text-indigo-600">Guard</span>
+            </span>
           </a>
 
           <div className="flex items-center gap-8 max-sm:gap-3.5">
-            {["Home", "About", "Footer"].map((link) => (
+            {["Home", "About"].map((link) => (
               <a
                 className="text-[13px] font-medium text-[#656377] no-underline transition-colors hover:text-indigo-700 max-sm:text-[11px]"
                 href={`#${link.toLowerCase()}`}
@@ -91,53 +94,130 @@ export default function Home() {
 
       <main>
         <section
-          className="relative grid min-h-[min(730px,calc(100svh-76px))] place-items-center overflow-hidden px-6 py-24 text-center max-md:min-h-[min(660px,calc(100svh-66px))] max-md:py-20 max-sm:min-h-[min(640px,calc(100svh-66px))] max-sm:px-5"
+          className="relative overflow-hidden px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 max-sm:px-4"
           id="home"
           aria-labelledby="hero-title"
         >
-          <div className="pointer-events-none absolute left-1/2 top-[5%] -z-0 aspect-square w-[min(760px,95vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(117,104,219,0.1)_0%,rgba(171,163,239,0.05)_42%,transparent_70%)]" />
-          <div className="relative z-[1] w-full max-w-[740px] animate-in fade-in slide-in-from-bottom-3 duration-700 motion-reduce:animate-none">
-            <div className="mb-7 inline-flex items-center gap-2.5 text-xs font-medium tracking-[0.015em] text-[#6c6885] max-sm:mb-[22px] max-sm:text-[10px]">
-              <span className="size-[7px] rounded-full bg-[#8980db] shadow-[0_0_0_4px_rgba(137,128,219,0.12)]" />
-              A calmer way to manage schema changes
-            </div>
-            <h1
-              className="m-0 text-[clamp(46px,7.2vw,78px)] font-semibold leading-[1.07] tracking-[-0.075em] text-[#201f2c] max-sm:text-[clamp(43px,12vw,56px)]"
-              id="hero-title"
-            >
-              Your database changes,
-              <br className="max-sm:hidden" />{" "}
-              <span className="text-[#7770c9]">with guardrails.</span>
-            </h1>
-            <p className="mx-auto mb-[30px] mt-6 max-w-[500px] text-base leading-[1.8] text-[#727084] max-md:text-sm max-sm:mb-[25px] max-sm:mt-5 max-sm:text-[13px]">
-              Review schema changes with clarity. Catch the risks, understand
-              the impact, and ship your migrations with confidence.
-            </p>
-            {/* OAuth uses a full-page navigation to follow the API redirect. */}
-            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-            <a
-              className="inline-flex min-h-[52px] items-center justify-center gap-[11px] rounded-xl bg-[#27253a] px-5 text-sm font-medium text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#3a3657] hover:shadow-[0_8px_24px_rgba(39,37,58,0.16)]"
-              href={`${getApiOrigin()}/api/v1/auth/github/login`}
-            >
-              {githubMark}
-              Continue with GitHub
-              <ArrowRight
-                className="ml-1 text-[#c5c1ee]"
-                aria-hidden="true"
-                size={17}
-              />
-            </a>
-            <p className="mt-3 text-[11px] text-[#9794a7]">
-              Secure sign-in with your GitHub account
-            </p>
+          <div className="pointer-events-none absolute -top-24 left-1/2 -z-0 aspect-[16/9] w-[min(1160px,100vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.12)_0%,rgba(165,180,252,0.05)_45%,transparent_70%)] blur-2xl" />
+
+          <div className="mx-auto w-[min(1120px,calc(100%-48px))] max-sm:w-[calc(100%-32px)]">
+            <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 animate-in fade-in slide-in-from-bottom-3 duration-700 motion-reduce:animate-none">
+              {/* Left Column: Heading, description, actions, feature badges */}
+              <div className="flex flex-col items-start text-left lg:col-span-7">
+                
+
+                <h1
+                  className="m-0 text-[clamp(38px,5vw,62px)] font-semibold leading-[1.08] tracking-[-0.06em] text-[#201f2c] max-sm:text-[clamp(34px,10vw,46px)]"
+                  id="hero-title"
+                >
+                  Your database changes,
+                  <br />
+                  <span className="text-indigo-600">with guardrails.</span>
+                </h1>
+
+                <p className="mt-5 mb-8 max-w-[520px] text-base leading-[1.75] text-[#6b6880] max-md:text-[15px] max-sm:mb-6 max-sm:mt-4 max-sm:text-[14px]">
+                  Review schema changes with clarity. Catch the risks, understand
+                  the impact, and ship your migrations with confidence.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-3.5 max-sm:w-full">
+                  {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+                  <a
+                    className="inline-flex min-h-[50px] items-center justify-center gap-[11px] rounded-xl bg-[#27253a] px-5 text-sm font-medium text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#393554] hover:shadow-[0_8px_24px_rgba(39,37,58,0.16)] max-sm:w-full"
+                    href={`${getApiOrigin()}/api/v1/auth/github/login`}
+                  >
+                    {githubMark}
+                    Continue with GitHub
+                    <ArrowRight
+                      className="ml-1 text-[#c5c1ee]"
+                      aria-hidden="true"
+                      size={17}
+                    />
+                  </a>
+                  <a
+                    className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-xl border border-[#221f4118] bg-white/70 px-4 text-sm font-medium text-[#535069] transition duration-200 hover:bg-white hover:text-indigo-700 hover:border-indigo-200 max-sm:w-full"
+                    href="#about"
+                  >
+                    <span>How it works</span>
+                    <ArrowDown className="text-[#8c88a4]" aria-hidden="true" size={15} />
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Interactive-style UI Preview Card */}
+              <div className="relative lg:col-span-5">
+                <div className="pointer-events-none absolute -inset-2 rounded-3xl bg-gradient-to-tr from-indigo-500/15 via-violet-500/10 to-transparent blur-xl" />
+                
+                <div className="relative overflow-hidden rounded-2xl border border-[#221f4115] bg-white/95 p-5 shadow-[0_20px_50px_rgba(33,29,66,0.08)] backdrop-blur-xl sm:p-6">
+                  {/* Top bar with traffic lights */}
+                  <div className="flex items-center justify-between border-b border-[#f1f0f6] pb-3.5">
+                    <div className="flex items-center gap-2">
+                      <span className="size-2.5 rounded-full bg-[#f4a7a7]" />
+                      <span className="size-2.5 rounded-full bg-[#fbd38d]" />
+                      <span className="size-2.5 rounded-full bg-[#9ae6b4]" />
+                      <span className="ml-2 font-mono text-[11px] font-medium text-[#797591]">
+                        pull/142 · schema.sql
+                      </span>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-600/20">
+                      <span className="size-1.5 rounded-full bg-emerald-500" />
+                      Safe to Merge
+                    </span>
+                  </div>
+
+                  {/* Schema diff display */}
+                  <div className="mt-4 font-mono text-xs">
+                    <div className="rounded-lg bg-[#f8f7fd] p-3 text-[11px] leading-[1.7] text-[#423f5b]">
+                      <div className="mb-1 text-[9px] font-semibold font-sans uppercase tracking-wider text-[#918da5]">
+                        Live Schema Diff
+                      </div>
+                      <div className="text-[#595570]">
+                        <span className="select-none text-[#a5a1bb]">1 </span>
+                        <span className="font-semibold text-indigo-600">ALTER TABLE</span> users
+                      </div>
+                      <div className="my-0.5 -mx-1 rounded bg-emerald-100/70 px-1.5 text-emerald-900">
+                        <span className="select-none font-semibold text-emerald-600">+ </span>
+                        ADD COLUMN email_verified BOOLEAN DEFAULT false;
+                      </div>
+                      <div className="my-0.5 -mx-1 rounded bg-emerald-100/70 px-1.5 text-emerald-900">
+                        <span className="select-none font-semibold text-emerald-600">+ </span>
+                        ADD COLUMN verified_at TIMESTAMP;
+                      </div>
+                      <div className="text-[#595570]">
+                        <span className="select-none text-[#a5a1bb]">4 </span>
+                        <span className="font-semibold text-indigo-600">CREATE INDEX</span> idx_users_email ON users(email);
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Guardrail metrics preview */}
+                  <div className="mt-4 grid grid-cols-2 gap-2.5">
+                    <div className="rounded-xl border border-indigo-100 bg-gradient-to-br from-indigo-50/70 to-violet-50/40 p-3">
+                      <div className="flex items-center gap-2">
+                        <ShieldCheck className="size-4 text-indigo-600" />
+                        <span className="text-[11px] font-semibold text-[#322f4b]">Risk Score</span>
+                      </div>
+                      <div className="mt-1.5 flex items-baseline gap-1.5">
+                        <span className="text-lg font-bold text-indigo-700">98</span>
+                        <span className="text-[10px] text-[#7d7994]">/ 100 (Safe)</span>
+                      </div>
+                    </div>
+
+                    <div className="rounded-xl border border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-teal-50/40 p-3">
+                      <div className="flex items-center gap-2">
+                        <GitPullRequest className="size-4 text-emerald-600" />
+                        <span className="text-[11px] font-semibold text-[#322f4b]">Lock Impact</span>
+                      </div>
+                      <div className="mt-1.5 flex items-baseline gap-1.5">
+                        <span className="text-lg font-bold text-emerald-700">&lt; 1ms</span>
+                        <span className="text-[10px] text-[#7d7994]">Zero lock contention</span>
+                      </div>
+                    </div>
+                  </div>                  
+                </div>
+              </div>
+            </div> 
           </div>
-          <a
-            className="absolute bottom-[38px] left-1/2 inline-flex -translate-x-1/2 items-center gap-2 text-[11px] text-[#8b889b] no-underline transition-colors hover:text-indigo-700"
-            href="#about"
-          >
-            <span>Get to know Schema Guard</span>
-            <ArrowDown aria-hidden="true" size={15} />
-          </a>
         </section>
 
         <section
@@ -154,7 +234,7 @@ export default function Home() {
                 className="m-0 text-[clamp(30px,4vw,42px)] font-medium leading-[1.15] tracking-[-0.06em] text-[#25233b] max-sm:text-[32px]"
                 id="about-title"
               >
-                Clarity at every <span className="text-[#7770c9]">step.</span>
+                Clarity at every <span className="text-indigo-600">step.</span>
               </h2>
             </div>
             <p className="mb-1 max-w-[310px] text-[13px] leading-[1.7] text-[#777487]">
@@ -246,20 +326,23 @@ export default function Home() {
               height={34}
               className="object-contain max-sm:size-8"
             />
-            <span>Schema Guard</span>
+            <span className="font-bold tracking-tight">
+              <span className="text-[#25233b]">Schema</span>{" "}
+              <span className="text-indigo-600">Guard</span>
+            </span>
           </a>
           <div className="flex items-center gap-[5px] text-[11px] text-[#8b889b]">
             <span>Made with care by</span>
-            <strong className="font-medium text-[#514e65]">Your Name</strong>
+            <strong className="font-medium text-[#514e65]">Asshley Gozar</strong>
           </div>
           <div
             className="flex items-center gap-[22px] max-sm:w-full max-sm:justify-between max-sm:border-t max-sm:border-[#221f4112] max-sm:pt-3"
             aria-label="Social links"
           >
             {[
-              ["Portfolio", "https://your-portfolio.com"],
-              ["GitHub", "https://github.com/yourusername"],
-              ["X", "https://x.com/yourusername"],
+              ["Portfolio", "https://www.asshleygozar.tech"],
+              ["GitHub", "https://github.com/asshleygozar"],
+              ["X", "https://x.com/sarani_muko_e"],
             ].map(([label, href]) => (
               <a
                 className="inline-flex items-center gap-[3px] text-[11px] font-medium text-[#656377] no-underline transition-colors hover:text-indigo-700"

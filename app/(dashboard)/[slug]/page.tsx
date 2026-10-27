@@ -7,6 +7,7 @@ import {
   LayoutDashboard,
   ShieldCheck,
 } from "lucide-react";
+import { SignOutButton } from "@/components/sign-out-button";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -91,6 +92,7 @@ export default async function DashboardPage({
           >
             {slug.slice(0, 2).toUpperCase()}
           </div>
+          <SignOutButton />
           <SidebarTrigger className="ml-1 lg:hidden" />
         </div>
       </header>
