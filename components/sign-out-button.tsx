@@ -2,8 +2,14 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { LogOut } from "lucide-react";
+import { LogOut, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { LoadingScreen } from "@/components/loading-screen";
 import { api } from "@/lib/axios";
 
@@ -26,17 +32,31 @@ export function SignOutButton() {
 
   return (
     <>
-      <Button
-        type="button"
-        variant="outline"
-        size="sm"
-        onClick={signOut}
-        disabled={isPending}
-        aria-label="Sign out"
-      >
-        <LogOut aria-hidden="true" />
-        <span className="hidden sm:inline">Sign out</span>
-      </Button>
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          render={
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon-sm"
+              disabled={isPending}
+              aria-label="Open account menu"
+            />
+          }
+        >
+          <MoreHorizontal aria-hidden="true" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" side="top" className="w-40">
+          <DropdownMenuItem
+            variant="destructive"
+            onClick={signOut}
+            disabled={isPending}
+          >
+            <LogOut aria-hidden="true" />
+            Sign out
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
       {error && (
         <p
           className="fixed bottom-4 right-4 z-[60] max-w-sm rounded-md border border-destructive/30 bg-background px-4 py-3 text-sm text-destructive shadow-lg"
